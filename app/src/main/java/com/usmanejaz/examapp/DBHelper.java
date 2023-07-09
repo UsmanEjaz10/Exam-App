@@ -34,8 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
                 + COLUMN_QUESTION + " TEXT,"
                 + COLUMN_QUESTIONNO + " INTEGER,"
-                + COLUMN_STATUS + "TEXT,"
-                + COLUMN_CORRECTANSWER + "TEXT"
+                + COLUMN_STATUS + " TEXT,"
+                + COLUMN_CORRECTANSWER + " TEXT"
                 + ")";
         db.execSQL(sql);
     }
@@ -47,22 +47,33 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertQuestion(Question data) {
+    public Boolean insertQuestion(Question data) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_QUESTIONNO, data.questionNo);
         values.put(COLUMN_QUESTION, data.question);
+        values.put(COLUMN_QUESTIONNO, data.questionNo);
         values.put(COLUMN_STATUS, data.status);
         values.put(COLUMN_CORRECTANSWER, data.correctAnswer);
 
 
-        db.insert(TABLE_NAME, null, values);
-
-
+        long res =  db.insert(TABLE_NAME, null, values);
         db.close();
+        if (res == -1) {
+            return false;
+        }
+        else return true;
+
+
     }
 
+    public void clearDB(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sql = "DELETE FROM " + TABLE_NAME;
+
+        db.execSQL(sql);
+    }
 
     public List<Question> displayResult() {
         List<Question> students = new ArrayList<>();
@@ -79,7 +90,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 @SuppressLint("Range")  int questionNo = cursor.getInt(cursor.getColumnIndex(COLUMN_QUESTIONNO));
                 @SuppressLint("Range") String status = cursor.getString(cursor.getColumnIndex(COLUMN_STATUS));
                 @SuppressLint("Range")  String correctAnswer = cursor.getString(cursor.getColumnIndex(COLUMN_CORRECTANSWER));
-                students.add(new Question(questionNo, question, status, correctAnswer ));
+                students.add(new Question(questionNo, question, status, correctAnswer));
 
             } while (cursor.moveToNext());
         }

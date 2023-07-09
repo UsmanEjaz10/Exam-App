@@ -12,26 +12,35 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnOne, btnTwo;
+    Button btnOne, btnTwo, btnThree;
     DBHelper db;
     ListView myListView;
+    TextView myTextView;
+    List<Question> list = new ArrayList<Question>();
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         btnOne = findViewById(R.id.frexambtn);
         btnTwo = findViewById(R.id.resultbtn);
-        myListView = findViewById(R.id.result);
+        btnThree = findViewById(R.id.back);
+        db = new DBHelper(getApplicationContext());
+
+
         btnOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                db.clearDB();
                 FRExam fragmentOne = new FRExam();
                 FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.layoutMainActivity, fragmentOne);
@@ -42,11 +51,26 @@ public class MainActivity extends AppCompatActivity {
         btnTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ResultDisplay fragmentOne = new ResultDisplay();
+                FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.layoutMainActivity, fragmentOne);
+                transaction.commit();
+                btnThree.setVisibility(View.VISIBLE);
+          //      MyViewAdapter adapter = new MyViewAdapter(getApplicationContext(), list);
+          //      myListView.setAdapter(adapter);
 
-                MyViewAdapter adapter = new MyViewAdapter(getApplicationContext(), db.displayResult());
-                myListView.setAdapter(adapter);
 
+            }
+        });
 
+        btnThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db.clearDB();
+                FRExam fragmentOne = new FRExam();
+                FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.layoutMainActivity, fragmentOne);
+                transaction.commit();
             }
         });
 

@@ -39,10 +39,8 @@ public class FRExam extends Fragment {
             // Inflate the layout for this fragment
             View view = inflater.inflate(R.layout.fr_exam, container, false);
 
-            db = new DBHelper(getActivity().getApplicationContext());
             letterTextView = view.findViewById(R.id.letter_text_view);
             letterTextView.setText(getRandomLetter());
-
             answerTextView = view.findViewById(R.id.answer_text_view);
 
             Button skyButton = view.findViewById(R.id.sky_button);
@@ -52,16 +50,19 @@ public class FRExam extends Fragment {
                     if (answerString == "Sky Letter") {
                         questionCount++;
                         correctCount++;
+                        db = new DBHelper(getContext().getApplicationContext());
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Correct", answerString);
                         db.insertQuestion(q);
 
                         answerTextView.setText("Awesome your answer is right");
                     } else {
                         questionCount++;
+                        db = new DBHelper(getContext().getApplicationContext());
+
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Incorrect", answerString);
                         db.insertQuestion(q);
 
-                        answerTextView.setText("Incorrect! the answer is " + answerString);
+                        answerTextView.setText("Incorrect! the answer is " + q.correctAnswer);
                     }
 
                     // Wait for 5 seconds and create a new question
@@ -87,15 +88,19 @@ public class FRExam extends Fragment {
                     if (answerString == "Grass Letter") {
                         questionCount++;
                         correctCount++;
+                        db = new DBHelper(getContext().getApplicationContext());
+
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Correct", answerString);
                         db.insertQuestion(q);
                         answerTextView.setText("Awesome your answer is right");
                     } else {
                         questionCount++;
+                        db = new DBHelper(getContext().getApplicationContext());
+
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Incorrect", answerString);
                         db.insertQuestion(q);
 
-                        answerTextView.setText("Incorrect! the answer is " + answerString);
+                        answerTextView.setText("Incorrect! the answer is " + q.correctAnswer);
                     }
                     // Wait for 5 seconds and create a new question
                     new Handler().postDelayed(new Runnable() {
@@ -120,16 +125,20 @@ public class FRExam extends Fragment {
                     if (answerString == "Root Letter") {
                         questionCount++;
                         correctCount++;
+                        db = new DBHelper(getContext().getApplicationContext());
+
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Correct", answerString);
                         db.insertQuestion(q);
 
                         answerTextView.setText("Awesome your answer is right");
                     } else {
                         questionCount++;
+                        db = new DBHelper(getContext().getApplicationContext());
+
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Incorrect", answerString);
                         db.insertQuestion(q);
 
-                        answerTextView.setText("Incorrect! the answer is " + answerString);
+                        answerTextView.setText("Incorrect! the answer is " + q.correctAnswer);
                     }
                     // Wait for 5 seconds and create a new question
                     new Handler().postDelayed(new Runnable() {
