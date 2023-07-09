@@ -53,16 +53,12 @@ public class FRExam extends Fragment {
                         db = new DBHelper(getContext().getApplicationContext());
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Correct", answerString);
                         db.insertQuestion(q);
-
-                        answerTextView.setText("Awesome your answer is right");
                     } else {
                         questionCount++;
                         db = new DBHelper(getContext().getApplicationContext());
 
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Incorrect", answerString);
                         db.insertQuestion(q);
-
-                        answerTextView.setText("Incorrect! the answer is " + q.correctAnswer);
                     }
 
                     // Wait for 5 seconds and create a new question
@@ -92,15 +88,12 @@ public class FRExam extends Fragment {
 
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Correct", answerString);
                         db.insertQuestion(q);
-                        answerTextView.setText("Awesome your answer is right");
                     } else {
                         questionCount++;
                         db = new DBHelper(getContext().getApplicationContext());
 
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Incorrect", answerString);
                         db.insertQuestion(q);
-
-                        answerTextView.setText("Incorrect! the answer is " + q.correctAnswer);
                     }
                     // Wait for 5 seconds and create a new question
                     new Handler().postDelayed(new Runnable() {
@@ -129,16 +122,12 @@ public class FRExam extends Fragment {
 
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Correct", answerString);
                         db.insertQuestion(q);
-
-                        answerTextView.setText("Awesome your answer is right");
                     } else {
                         questionCount++;
                         db = new DBHelper(getContext().getApplicationContext());
 
                         Question q = new Question(questionCount, letterTextView.getText().toString(), "Incorrect", answerString);
                         db.insertQuestion(q);
-
-                        answerTextView.setText("Incorrect! the answer is " + q.correctAnswer);
                     }
                     // Wait for 5 seconds and create a new question
                     new Handler().postDelayed(new Runnable() {
