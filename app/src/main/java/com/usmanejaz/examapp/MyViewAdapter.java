@@ -40,9 +40,11 @@ public class MyViewAdapter extends ArrayAdapter<Question> {
 
     if(student.status.equals("Correct")){
         layout.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
+        textViewStatus.setTextColor(ContextCompat.getColor(getContext(), R.color.green_dark));
     }
     else{
         layout.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.red));
+        textViewStatus.setTextColor(ContextCompat.getColor(getContext(), R.color.red_dark));
     }
 
         return convertView;
