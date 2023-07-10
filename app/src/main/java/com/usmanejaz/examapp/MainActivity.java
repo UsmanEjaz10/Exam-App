@@ -77,21 +77,10 @@ public class MainActivity extends Fragment {
                 FragmentTransaction transaction =getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.layoutMainActivity, fragmentOne);
                 transaction.commit();
-                btnThree.setVisibility(View.VISIBLE);
-          //      MyViewAdapter adapter = new MyViewAdapter(getApplicationContext(), list);
-          //      myListView.setAdapter(adapter);
 
 
             }
         });
-
-        btnThree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnThree.setText("Working");
-            }
-        });
-
 
 
         return view;
