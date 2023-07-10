@@ -1,48 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="all">
-        <item
-            android:id="@+id/nav_book"
-            android:title="Book" />
-        <item
-            android:id="@+id/nav_return"
-            android:title="Return" />
-        <item
-            android:id="@+id/nav_laptop"
-            android:title="Surah List" />
-        <item
-            android:id="@+id/nav_voice"
-            android:title="Voice" />
-    </group>
-
-
-    <item android:title="Reading">
+    <item android:title="Nav Links">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_chrome_reader"
-                    android:title="Chrome Reader" />
+                    android:id="@+id/results"
+                    android:title="Result" />
                 <item
-                    android:id="@+id/nav_rea_more"
-                    android:title="Read More" />
+                    android:id="@+id/main"
+                    android:title="Home" />
             </group>
         </menu>
     </item>
-
-    <item android:title="Comments">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/Nav_add_comment"
-                    android:title="Add Comment" />
-                <item
-                    android:id="@+id/nav_insert_comment"
-                    android:title="Insert Comment" />
-            </group>
-        </menu>
-    </item>
-
 
 
 </menu>

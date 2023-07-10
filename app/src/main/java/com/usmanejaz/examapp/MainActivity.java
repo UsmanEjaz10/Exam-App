@@ -88,11 +88,7 @@ public class MainActivity extends Fragment {
         btnThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                FRExam fragmentOne = new FRExam();
-                FragmentTransaction transaction =getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.layoutMainActivity, fragmentOne);
-                transaction.commit();
+                btnThree.setText("Working");
             }
         });
 

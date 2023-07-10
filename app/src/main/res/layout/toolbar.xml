@@ -14,5 +14,5 @@
     android:id="@+id/toolbar"/>
 </com.google.android.material.appbar.AppBarLayout>
 
-<include layout="@layout/activity_main"></include>
+<include layout="@layout/fra"></include>
 </LinearLayout>
