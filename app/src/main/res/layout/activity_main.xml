@@ -39,6 +39,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#e6056f"
         android:text="Back to Result"
+
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

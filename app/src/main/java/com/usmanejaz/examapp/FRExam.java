@@ -19,8 +19,8 @@ import android.widget.Button;
 public class FRExam extends Fragment {
         private TextView letterTextView, answerTextView;
         private char[] skyLetters = {'b', 'd', 'f', 'h', 'k', 'l', 't'};
-        private char[] grassLetters = {'g', 'j', 'p', 'q', 'y'};
-        private char[] rootLetters = {'a', 'c', 'e', 'i', 'm', 'n', 'o', 'r', 's', 'u', 'v', 'w', 'x', 'z'};
+        private char[] rootLetters = {'g', 'j', 'p', 'q', 'y'};
+        private char[] grassLetters = {'a', 'c', 'e', 'i', 'm', 'n', 'o', 'r', 's', 'u', 'v', 'w', 'x', 'z'};
         private String answerString = "";
         int questionCount = 0;
         int correctCount = 0;

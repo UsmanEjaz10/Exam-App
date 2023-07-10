@@ -8,7 +8,7 @@
                     android:id="@+id/results"
                     android:title="Result" />
                 <item
-                    android:id="@+id/main"
+                    android:id="@+id/home"
                     android:title="Home" />
             </group>
         </menu>

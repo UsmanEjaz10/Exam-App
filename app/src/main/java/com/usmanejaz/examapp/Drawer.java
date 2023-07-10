@@ -50,6 +50,13 @@ Toolbar toolbar;
                     transaction.commit();
 
                 }
+                else if(id == R.id.home){
+                    MainActivity fragmentOne = new MainActivity();
+                    FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fra, fragmentOne);
+                    transaction.commit();
+
+                }
 
                 return true;
             }
